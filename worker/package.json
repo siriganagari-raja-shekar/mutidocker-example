@@ -1,0 +1,16 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "Worker to watch redis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --inspect index.js"
+  },
+  "author": "Raja Shekar",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.22",
+    "redis": "^4.6.7"
+  }
+}
