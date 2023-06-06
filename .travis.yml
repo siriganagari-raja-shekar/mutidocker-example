@@ -1,0 +1,20 @@
+sudo: required
+
+services: docker
+
+before_install: 
+  - docker -t rajashekar435/client-test -f /client/Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true rajashekar435/client-test npm run test -- --coverage
+
+after_success: 
+  - docker build -t rajashekar435/multi-client ./client
+  - docker build -t rajashekar435/multi-nginx ./nginx
+  - docker build -t rajashekar435/multi-server ./server
+  - docker build -t rajashekar435/multi-worker ./worker
+  - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+  - docker push rajashekar435/multi-client
+  - docker push rajashekar435/multi-nginx
+  - docker push rajashekar435/multi-server
+  - docker push rajashekar435/multi-worker
