@@ -1,5 +1,5 @@
 {
-    "AWSEBDockerrunVersion" : "Dockerrun.aws.json v1",
+    "AWSEBDockerrunVersion" : "1",
     "containerDefinitions" : [
         {
             "name" : "client",
