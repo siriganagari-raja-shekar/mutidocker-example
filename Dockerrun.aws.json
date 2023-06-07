@@ -7,7 +7,11 @@
             "hostname": "client",
             "essential": false,
             "memory": 128,
-            "ports" : []
+            "ports" : [
+                {
+                    "containerPort" : 3000
+                }
+            ]
         },
         {
             "name" : "server",
@@ -15,7 +19,11 @@
             "hostname" : "api",
             "essential": false,
             "memory": 128,
-            "ports" : []
+            "ports" : [
+                {
+                    "containerPort" : 5000
+                }
+            ]
         },
         {
             "name" : "worker",
@@ -23,7 +31,11 @@
             "hostname" : "worker",
             "essential": false,
             "memory": 128,
-            "ports" : []
+            "ports" : [
+                {
+                    "containerPort" : 5000
+                }
+            ]
         },
         {
             "name" : "nginx",
