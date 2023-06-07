@@ -5,6 +5,7 @@ services: docker
 before_install: 
   - docker build -t rajashekar435/client-test -f ./client/Dockerfile.dev ./client
 
+#Adding comment just for testing purpose
 script: 
   - docker run -e CI=true rajashekar435/client-test npm run test -- --coverage
 
