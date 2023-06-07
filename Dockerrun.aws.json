@@ -1,29 +1,33 @@
 {
-    "AWSEBDockerrunVersion" : "Dockerrun.aws.json v3",
+    "AWSEBDockerrunVersion" : "Dockerrun.aws.json v1",
     "containerDefinitions" : [
         {
             "name" : "client",
             "image": "rajashekar435/multi-client",
             "hostname": "client",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name" : "server",
             "image": "rajashekar435/multi-server",
             "hostname" : "api",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name" : "worker",
             "image": "rajashekar435/multi-worker",
             "hostname" : "worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name" : "nginx",
             "image": "rajashekar435/multi-nginx",
             "hostname": "nginx",
             "essential": true,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 80,
