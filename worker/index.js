@@ -47,11 +47,13 @@ const fib = (index) =>{
 
 
 (async ()=>{
-
-    await sub.subscribe("insert", async (message, channel) => {
-        console.log("Adding value to redis server from worker");
-        await redisClient.hSet("values", message, fib(parseInt(message)));
-    });
-
+    try {
+        await sub.subscribe("insert", async (message, channel) => {
+            console.log("Adding value to redis server from worker");
+            await redisClient.hSet("values", message, fib(parseInt(message)));
+        });
+    } catch (error) {
+        console.log(error);
+    }
 })();
 
