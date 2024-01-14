@@ -10,7 +10,14 @@ const redisClient = redis.createClient({
 });
 
 (async () => {
-    await redisClient.connect();
+
+    try{
+        await redisClient.connect();
+    }
+    catch(err) {
+        console.log(err)
+    }
+
 })();
 
 redisClient.on("connect", async ()=>{
@@ -20,7 +27,12 @@ redisClient.on("connect", async ()=>{
 const sub = redisClient.duplicate();
 
 (async () => {
-    await sub.connect();
+    try{
+        await sub.connect();
+    }
+    catch(err) {
+        console.log(err)
+    }
 })();
 
 sub.on("connect", async ()=>{
